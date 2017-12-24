@@ -22,7 +22,8 @@ public class FXProperty extends Application {
         Slider fill = new Slider(0,360,180);
         Slider fontSize = new Slider(0.5,10,1);
         Slider rotation = new Slider(0, 360, 0);
-        stack.getChildren().addAll(xPos, yPos, fill, fontSize, rotation);
+        Slider opacity = new Slider(0,1,1);
+        stack.getChildren().addAll(xPos, yPos, fill, fontSize, rotation, opacity);
         center.getChildren().add(fxText);
         root.setCenter(center);
         root.setLeft(stack);
@@ -39,5 +40,6 @@ public class FXProperty extends Application {
         fxText.rotateProperty().bindBidirectional(rotation.valueProperty());
         fxText.scaleXProperty().bindBidirectional(fontSize.valueProperty());
         fxText.scaleYProperty().bindBidirectional((fontSize.valueProperty()));
+        fxText.opacityProperty().bindBidirectional(opacity.valueProperty());
     }
 }
